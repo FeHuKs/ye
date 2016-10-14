@@ -29,45 +29,40 @@ do{
             case '*': {main.setmU(number1,number2);System.out.println(number1 + " * " + number2 + " = " + main.getmU(main.number3));break;}
             case '/': {if(number1 > 0)main.setmD(number1,number2);else {System.out.println(number1 + " < 0   Error");break;}System.out.println(number1 + " / " + number2 + " = " + main.getmD(main.number3));break;}
             default: {System.out.println(main.getError());break;}}
-    main.getmU(10);
-    System.out.println("Return? - \"Y\" or \"N\"");
-    Scanner returnW = new Scanner(System.in);
-    flags = returnW.nextLine();
+
+    do {
+        System.out.print("Return? - \"Y\" or \"N\" : ");
+        Scanner returnW = new Scanner(System.in);
+        flags = returnW.nextLine();
+    }while (!(flags.equals("Y") || flags.equals("N") || flags.equals("y") || flags.equals("n")));
         }while (flags.equals("Y"));
-        System.out.println("Bye Bye");
+        System.out.println("Bye-Bye");
 
 
 
     }
 
+        /*
+         * Set
+         * */
+    @Override
+    public void setmU(int number1,int number2) {this.number3 = number1 * number2;}
 
     @Override
-    public void setmU(int number1,int number2) {
-        this.number3 = number1 * number2;
-    }
+    public void setmD(int number1,int number2) {this.number3 = number1 / number2;}
 
     @Override
-    public void setmD(int number1,int number2) {
-        this.number3 = number1 / number2;
-    }
+    public void setmV(int number1,int number2) {this.number3 = number1 - number2;}
 
     @Override
-    public void setmV(int number1,int number2) {
-        this.number3 = number1 - number2;
+    public void setmS(int number1,int number2) {this.number3 = number1 + number2;}
 
-    }
-
-    @Override
-    public void setmS(int number1,int number2) {
-        this.number3 = number1 + number2;
-    }
-
-
+    /*
+    * GET
+    * */
 
     @Override
-    public int getmU(int number3) {
-        return number3;
-    }
+    public int getmU(int number3) {return number3;}
 
     @Override
     public int getmD(int number3) {
