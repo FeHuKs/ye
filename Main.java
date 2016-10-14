@@ -4,51 +4,65 @@ import java.util.Scanner;
  * Created by dom on 13.10.2016.
  */
 public class Main implements MathM{
+    public int number3;
 
     public static void main(String[] args) {
-        int number1, number2, number3;
+        Main main = new Main();
+        int number1, number2;
         char symbol;
+        String flags;
 
 
 
-
-        System.out.println("1.) number1 :");
-        Scanner scanner = new Scanner(System.in);
+do{
+    Scanner scanner = new Scanner(System.in);
+        System.out.print("1.) number1 : ");
         number1 = scanner.nextInt();
-        System.out.println("2.) symbols + , * , - , / . :");
+        System.out.print("2.) symbols + , * , - , / . : ");
         symbol = scanner.next().charAt(0);
-        System.out.println("3.) number3 :");
+        System.out.print("3.) number2 : ");
         number2 = scanner.nextInt();
 
         switch (symbol) {
-            case '+': {}
-            case '-': {}
-            case '*': {}
-            case '/': {}
-            default: {}
-        }
+            case '+': {main.setmS(number1,number2);System.out.println(number1 + " + " + number2 + " = " + main.getmS(main.number3));break;}
+            case '-': {main.setmV(number1,number2);System.out.println(number1 + " - " + number2 + " = " + main.getmV(main.number3));break;}
+            case '*': {main.setmU(number1,number2);System.out.println(number1 + " * " + number2 + " = " + main.getmU(main.number3));break;}
+            case '/': {if(number1 > 0)main.setmD(number1,number2);else {System.out.println(number1 + " < 0   Error");break;}System.out.println(number1 + " / " + number2 + " = " + main.getmD(main.number3));break;}
+            default: {System.out.println(main.getError());break;}}
+    main.getmU(10);
+    System.out.println("Return? - \"Y\" or \"N\"");
+    Scanner returnW = new Scanner(System.in);
+    flags = returnW.nextLine();
+        }while (flags.equals("Y"));
+        System.out.println("Bye Bye");
+
+
+
     }
 
 
     @Override
     public void setmU(int number1,int number2) {
-
+        this.number3 = number1 * number2;
     }
 
     @Override
     public void setmD(int number1,int number2) {
-
+        this.number3 = number1 / number2;
     }
 
     @Override
     public void setmV(int number1,int number2) {
+        this.number3 = number1 - number2;
 
     }
 
     @Override
     public void setmS(int number1,int number2) {
-
+        this.number3 = number1 + number2;
     }
+
+
 
     @Override
     public int getmU(int number3) {
@@ -72,6 +86,6 @@ public class Main implements MathM{
 
     @Override
     public String getError() {
-        return null;
+        return "Error";
     }
 }
