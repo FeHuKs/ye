@@ -7,7 +7,8 @@ public class Main implements MathM{
     public int number3;
 
     public static void main(String[] args) {
-        Main main = new Main();
+        Main main;
+        main = new Main();
         int number1, number2;
         char symbol;
         String flags;
