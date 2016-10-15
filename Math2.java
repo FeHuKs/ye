@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by dom on 15.10.2016.
  */
-public class Math2 extends TestMath {
+public class Math2 extends  Math3 {
 public void startCalc(){
     do{
         testScannerError();
